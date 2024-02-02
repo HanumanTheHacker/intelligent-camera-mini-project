@@ -1,0 +1,151 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NetraRakshak</title>
+    <link rel="stylesheet" href="{% static 'app1/css/stylehome.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="homepage">
+    <nav class="navbar">
+        <div class="logo"><ion-icon name="shield-half-outline"></ion-icon>NetraRakshak</div>
+        <ul class="nav-links">
+            <li><a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Dashboard</a></li>
+            <li><a href="{% url 'history' %}" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">History</a></li>
+            <li><a href="{% url 'analysis' %}" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">About</a></li>
+            <li class="dropdown">
+                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Profile</a>
+                {% comment %} <div class="dropdown-content">
+                    <a href="#">User</a>
+                    <a href="#">Logout</a>
+                </div> {% endcomment %}
+            </li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <div class="webcam-container" id="webcam-container">
+            <img src="{% url 'vid_inp' %}" id="webcam-video" >
+        </div>
+        <div class="sidebar">
+            <div class="sidebar-content">
+                <div class="container">
+                    <h2>Anomaly Alert</h2>
+                   <h1  id="anomaly">{{ anomaly_class }}</h1>
+                  </div>
+
+                  <!-- <div class="container">
+                    <h2>Recent anomaly detected</h2>
+                    <ul>
+                      <li>
+                        <span class="time">6 hours ago</span>
+                        <span class="path">Drilling</span>
+                      </li>
+                      <li>
+                        <span class="time">13 hours ago</span>
+                        <span class="path">Wall Climbing</span>
+                      </li>
+                      <li>
+                        <span class="time">17 hours ago</span>
+                        <span class="path">Fighting</span>
+                      </li>
+                      <li>
+                        <span class="time">Yesterday</span>
+                        <span class="path">Rope Climbing</span>
+                      </li>
+                    </ul>
+                    <a href="#">View History →</a>
+                  </div>-->
+        </div>
+    </div>
+    {% comment %} <div id="modal" class="modal">
+        <div class="modal-content">
+            <p>Do you want to use the real-time webcam or upload a video?</p>
+            <button id="webcamBtn">Use Webcam</button>
+            <button id="uploadBtn">Upload Video</button>
+        </div>
+    </div> {% endcomment %}
+    {% comment %} 14-01-24 {% endcomment %}
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Check if the user has made a decision (use webcam or upload video)
+            const decision = sessionStorage.getItem('userDecision');
+        
+            if (!decision) {
+                // If the decision is not made, show the modal
+                document.getElementById('modal').style.display = 'block';
+            }
+        
+            // Event listener for webcam button
+            document.getElementById('webcamBtn').addEventListener('click', function () {
+                // Save the decision to use webcam
+                sessionStorage.setItem('userDecision', 'webcam');
+        
+                // Hide the modal
+                document.getElementById('modal').style.display = 'none';
+            });
+        
+            // Event listener for upload button
+            document.getElementById('uploadBtn').addEventListener('click', function () {
+                // Save the decision to upload video
+                sessionStorage.setItem('userDecision', 'upload');
+        
+                // Open the folder/file dialog for video upload (you may need additional logic here)
+                alert('Implement video upload logic here');
+        
+                // For now, let's hide the modal
+                document.getElementById('modal').style.display = 'none';
+            });
+        });
+        
+    </script>
+
+    {% comment %} 14-01-24 end {% endcomment %}
+
+
+<!-- 
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const webcamContainer = document.getElementById("webcam-container");
+            const webcamVideo = document.getElementById("webcam-video");
+        
+            if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                navigator.mediaDevices.getUserMedia({ video: true })
+                    .then((stream) => {
+                        webcamVideo.srcObject = stream;
+                    })
+                    .catch((error) => {
+                        console.error("Error accessing webcam:", error);
+                    });
+            } else {
+                console.error("getUserMedia is not supported in this browser");
+            }
+        });
+    </script> -->
+    <!-- home.html -->
+<script>
+    function updateAnomaly() {
+        fetch('/update_anomaly/')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('anomaly').innerHTML = `<h1>${data.anomaly_class}</h1>`;
+            })
+            .catch(error => {
+                console.error('Error fetching anomaly update:', error);
+            });
+    }
+
+    // Update anomaly every 500 milliseconds 
+    setInterval(updateAnomaly, 500);
+</script>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

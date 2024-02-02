@@ -1,0 +1,359 @@
+body.homepage {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  overflow: hidden; /* Disable scrolling on the body */
+  background: #000509;
+}
+
+body.historypage{
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background: #000509;
+}
+
+html {
+  height: 100%;
+}
+
+.navbar {
+  background-color: #000509; /* GitHub theme color */
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #2f80f6;
+}
+
+.navbar .logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+}
+
+.nav-links li {
+  margin-right: 40px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.content {
+  display: flex;
+  flex: 1;
+  overflow: hidden; /* Disable scrolling in the content area */
+}
+
+.webcam-container {
+  flex: 3;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000509;
+}
+
+#webcam-video {
+  border-radius: 10px; /* Adjust the border radius as needed */
+}
+
+.sidebar {
+  flex: 1;
+  background-color: #0c1116; /* Different shade of color for the sidebar */
+  padding: 20px;
+  height: 100vh; /* Extend sidebar to the bottom of the page */
+  border-left: 1px solid #2f80f6;
+}
+
+/* Placeholder styles */
+.webcam-video,
+.sidebar-content {
+  padding: 20px;
+  /* border: 1px solid #ccc; */
+  margin: 10px;
+  min-height: 200px;
+}
+
+.logo ion-icon{
+  font-size: 40px;
+  text-align: center;
+  color: #ffffff;
+  height: 20px;
+}
+
+/* sidebar container */
+
+#anomaly{
+  height: 280px;
+  justify-content: center;
+}
+.container {
+  background-color: #1b1f23;
+  color: #fff;
+  width: 371px;
+  /* height: 315px; */
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.container  h1 {
+  font-size: 45px;
+  margin-bottom: 30px;
+}
+
+.container  h2 {
+  font-size: 20px;
+  margin-bottom: 40px;
+}
+
+.container  ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.container  li {
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.time {
+  color: #8b949e;
+  font-size: 14px;
+  margin-right: 10px;
+}
+
+.path {
+  color: #c9d1d9;
+  font-size: 14px;
+}
+
+/* li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #30363d;
+  transform: translateY(-50%);
+} */
+
+.container  a {
+  color: #58a6ff;
+  font-size: 14px;
+  text-decoration: none;
+  display: block;
+  margin-top: 20px;
+}
+
+.container  a:hover {
+  text-decoration: underline;
+}
+
+/* history page css  */
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000509;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.search-bar input {
+  padding: 10px;
+  border: none;
+  border-radius: 30px 0 0 30px;
+  width: 800px;
+  height: 30px;
+  font-family: 'Poppins';
+  font-size: 20px;
+}
+
+.search-bar button {
+  padding: 10px;
+  background-color: #2f80f6;
+  color: white;
+  border: none;
+  border-radius: 0 30px 30px 0;
+  cursor: pointer;
+  height: 50px;
+  width: 3pc;
+}
+
+/* Styles for the history page */
+.history-container {
+  width: 600px; /* Set a maximum width for the container */
+  margin: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the items inside the container */
+}
+
+.history-cards {
+  display: flex;
+  flex-direction: column;
+}
+
+/* .history-card {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  width: 800px;
+  height: 200px;
+}
+
+.timestamp {
+  font-size: 14px;
+  color: #666;
+  margin-right: 10px;
+}
+
+.anomaly {
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.anomaly-image img {
+  max-width: 100%;
+  border-radius: 5px;
+} */
+
+/* new history card css code 16:40 */
+/* Styles for the history page */
+/* Styles for the history page */
+.history-card {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  display: flex;
+  width: 800px;
+  height: 200px;
+}
+
+.left-part {
+  flex: 1; /* Use flex: 1 to take up the available space */
+  display: flex;
+  flex-direction: column;
+}
+
+.right-part {
+  width: 400px; /* Set a fixed width for the right part */
+  margin-left: 20px; /* Add spacing between the left and right parts */
+  border-radius: 10px; /* Rounded corners for the image container */
+  overflow: hidden; /* Hide overflowing content within the rounded container */
+}
+
+.timestamp {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px; /* Add space between timestamp and anomaly */
+}
+
+.anomaly {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.anomaly-image-container {
+  width: 100%; /* Set a fixed width for the image container */
+  /* height: 100px; Set a fixed height for the image container */
+  border-radius: 10px; /* Rounded corners for the image container */
+  overflow: hidden; /* Hide overflowing content within the rounded container */
+}
+
+.anomaly-image-container img {
+  width: 100%; /* Ensure the image fills the container */
+  height: 100%; /* Ensure the image fills the container */
+  object-fit: cover; /* Maintain aspect ratio while covering the container */
+  border-radius: 10px; /* Rounded corners for the image */
+}
+
+
+
+/* 14-01-24 */
+/* Style for the modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Add any additional styling based on your design */
+
+
+
+/* analysis page */
+.anacon {
+  width: 50%; /* Set a maximum width for your container */
+  height: 50%;
+  margin: auto; /* Center the container horizontally */
+  margin-top: 20px; /* Add top margin if needed */
+}
+
+.rounded-lg {
+  border-radius: 10px; /* Adjust the border radius as needed */
+}
+
+#chartPie {
+  width: 100%; /* Make the chart fill the container */
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Remove any extra space around the canvas */
+  margin: auto; /* Center the canvas horizontally */
+}
+
